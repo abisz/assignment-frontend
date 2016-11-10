@@ -1,4 +1,6 @@
 // Todo: implement dynamic routes
+// Todo: problem with subdomains?
+const reExternal = /^(https:\/\/www\.|http:\/\/www\.|www\.)(.+\.\w{2,})\/?$/;
 
 let routes = new Map();
 
@@ -7,10 +9,20 @@ function initEventListeners () {
   const links = document.getElementsByTagName('a');
 
   for (var i = 0; i < links.length; i++) {
-    // Todo: check for real links
+
     links[i].addEventListener('click', e => {
-      e.preventDefault();
-      goto(e.srcElement.pathname)
+      const link = e.srcElement;
+
+      console.log(window.location);
+
+      if (typeof link.getAttribute('download') !== 'string' &&
+        link.getAttribute('target') !== '_blank') {
+
+        e.preventDefault();
+        console.log(link.getAttribute('href'));
+        goto(link.getAttribute('href'))
+      }
+
     });
   }
 
