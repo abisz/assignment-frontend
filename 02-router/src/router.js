@@ -2,6 +2,18 @@ const reExternal = /^(https:\/\/|http:\/\/)(www\.)?(.+\.\w{2,})\/?$/;
 
 let routes = new Map();
 
+function init () {
+  const path = window.location.pathname;
+
+  initEventListeners();
+
+  console.log('init', path);
+
+  addToHistory(path);
+
+  goto(path);
+}
+
 function initEventListeners () {
 
   const links = document.getElementsByTagName('a');
@@ -21,8 +33,10 @@ function initEventListeners () {
       ) {
 
         e.preventDefault();
-        console.log(link.getAttribute('href'));
-        goto(link.getAttribute('href'))
+
+        addToHistory(href)
+
+        goto(href)
       }
     });
   }
@@ -32,18 +46,13 @@ function initEventListeners () {
   }
 }
 
-function init () {
-  const path = window.location.pathname;
-
-  console.log('init', path);
-
-  goto(path);
-}
-
-function goto (route) {
+function addToHistory(route) {
   window.history.pushState({
     pathname: route
   }, '', route);
+}
+
+function goto (route) {
 
   for ( let [key, fn] of routes.entries() ) {
 
@@ -57,7 +66,7 @@ function goto (route) {
 
       for (let j = 0; j < routeLength; j++) {
         // didn't find a better way to match capture group multiple times
-        routeRegexString += '(\/\:?[a-zA-Z0-9]+)';
+        routeRegexString += '(\/\:?[a-zA-Z0-9-]+)';
       }
 
       const routeRegex = new RegExp(routeRegexString);
@@ -70,7 +79,7 @@ function goto (route) {
         if ( routeParts[i].indexOf(':') == -1 ) {
           regexString += routeParts[i].replace('/', '\\/');
         } else {
-          regexString += '\\/([a-zA-Z0-9]*)';
+          regexString += '\\/([a-zA-Z0-9-]*)';
         }
       }
 
@@ -99,7 +108,6 @@ export default function (route, fn) {
   }
 
   if (!route && !fn) {
-    initEventListeners();
     init();
   }
 }
