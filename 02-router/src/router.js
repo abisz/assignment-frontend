@@ -42,14 +42,12 @@ function initEventListeners () {
   }
 
   window.onpopstate = function (e) {
-    goto(e.state.pathname);
+    goto(window.location.pathname);
   }
 }
 
 function addToHistory(route) {
-  window.history.pushState({
-    pathname: route
-  }, '', route);
+  window.history.pushState({}, '', route);
 }
 
 function goto (route) {
