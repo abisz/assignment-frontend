@@ -5,8 +5,8 @@ import playerTpl from './templates/player.hbs'
 import contactTpl from './templates/contact.hbs'
 import notFoundTpl from './templates/not-found.hbs'
 
-const players = {
-  magnus: {
+const playerData = {
+  'magnus': {
     name: 'Magnus Carlsen',
     imgSource: 'https://cdn.worldchess.com/static/img/nyfide/carlsen_2x.png',
     paragraphs: [
@@ -14,7 +14,7 @@ const players = {
       'In November 2013 Carlsen became World Champion by defeating Viswanathan Anand in the World Chess Championship 2013. On the May 2014 FIDE rating list, Carlsen reached his peak rating of 2882, which is the highest in history. He successfully defended his title in November 2014, once again defeating Anand. The same year, he also won the World Rapid Championship and the World Blitz Championship, thus holding all three world championship titles. In 2015 Carlsen won the inaugural Grand Chess Tour, a series of three supertournaments featuring the 10 best chess grandmasters in the world.'
     ]
   },
-  sergey: {
+  'sergey': {
     name: 'Sergey Karjakin',
     imgSource: 'https://cdn.worldchess.com/static/img/nyfide/karjakin_2x.png',
     paragraphs: [
@@ -35,7 +35,8 @@ function contact() {
 }
 
 function players(ctx) {
-  $app.html(players(player[ctx]));
+
+  $app.html(playerTpl(playerData[ctx.params.player]));
 }
 
 function notFound() {
