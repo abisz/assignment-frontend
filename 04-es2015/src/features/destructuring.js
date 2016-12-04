@@ -11,4 +11,11 @@ export function es5() {
 }
 
 export function es6() {
+  function d(obj) {
+    const {x = 0, y = 0, z = 0} = obj;
+
+    return x + y + z;
+  }
+
+  return d;
 }

@@ -36,4 +36,21 @@ export function es5() {
 }
 
 export function es6() {
+  function defaults(x = 12) {
+    return x;
+  }
+
+  function rest(x, ...rest) {
+    return [x, ...rest].join(',');
+  }
+
+  function spread(arr) {
+    return arr.reduce((a, b) => a + b);
+  }
+
+  return {
+    defaults,
+    rest,
+    spread
+  }
 }

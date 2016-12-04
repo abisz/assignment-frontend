@@ -10,4 +10,13 @@ export function es5() {
 }
 
 export function es6() {
+  const a = [1, 2, 3, 4, 5];
+  let sum = 0;
+
+  for (const d of a) {
+    sum += d;
+  }
+
+  return sum;
+  // return a.reduce( (a, b) => a + b );
 }

@@ -40,4 +40,12 @@ export function es5() {
 
 export function es6() {
   // Just implement the test!
+  // TODO: is that all?
+  const mySet = new Set();
+
+  mySet.add(1).add(2).add(3);
+
+  const myMap = new Map();
+  myMap.set('Hello', 'World');
+  myMap.set('second', 2);
 }
