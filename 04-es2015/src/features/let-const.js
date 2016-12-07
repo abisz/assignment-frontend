@@ -25,5 +25,20 @@ export function es5() {
 }
 
 export function es6() {
-  // TODO: ???
+  const BASE = 2;
+  const o = {};
+
+  o.constants = function(val) {
+    return Math.pow(BASE, val);
+  };
+
+  o.scope = function(n) {
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+      sum += i;
+    }
+    return i;
+  };
+
+  return o;
 }

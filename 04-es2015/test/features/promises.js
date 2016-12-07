@@ -15,5 +15,9 @@ export default function() {
   })
 
   it('should show Promise behavior in ES6', () => {
+    es6().then( val => {
+      val.should.eq(10);
+      done();
+    });
   })
 }
