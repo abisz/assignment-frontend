@@ -38,3 +38,95 @@
     </svg>
   </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Just beautiful art</h4>
+        <svg viewBox="0 0 120 40">
+            <style>
+                .art {
+                    fill: #BADA55;
+                }
+
+                .rect_art {
+                    width: 10px;
+                    height: 10px;
+                }
+            </style>
+
+
+          <g class="art">
+            <!-- Left Arm -->
+            <g>
+              <rect
+                class="rect_art"
+                x="0"
+                y="0"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="10"
+                y="10"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="20"
+                y="20"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="30"
+                y="30"
+              ></rect>
+            </g>
+
+            <!-- Head -->
+            <circle
+              cx="50%"
+              cy="50%"
+              r="20"
+            ></circle>
+
+            <!-- Face -->
+            <g transform="translate(40)">
+                <!-- Eyes -->
+                <circle fill="#000" cx="10" cy="10" r="2"></circle>
+                <circle fill="#000" cx="30" cy="10" r="2"></circle>
+
+                <!-- Mouth -->
+                <path
+                  d="M 10 20 Q 20 30 30 20 Z"
+                  stroke="black"
+                  fill="#fff"
+                ></path>
+            </g>
+
+            <!-- Right Arm -->
+            <!-- the translate properties behave strangely due to the rotation -->
+            <g transform="rotate(90 20 20) translate(0 -80)">
+              <rect
+                class="rect_art"
+                x="0"
+                y="0"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="10"
+                y="10"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="20"
+                y="20"
+              ></rect>
+              <rect
+                class="rect_art"
+                x="30"
+                y="30"
+              ></rect>
+            </g>
+          </g>
+
+        </svg>
+    </div>
+</div>
