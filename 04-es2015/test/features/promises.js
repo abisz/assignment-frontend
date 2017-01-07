@@ -12,12 +12,11 @@ export default function() {
       val.should.eql(10)
       done()
     })
-  })
+  });
 
-  it('should show Promise behavior in ES6', () => {
-    es6().then( val => {
-      val.should.eq(10);
-      done();
-    });
-  })
+  it.skip('should show Promise behavior in ES6', (done) => {
+    es6()
+      .then(val => val.should.eql(10) && done())
+      .catch(err => done(err))
+  });
 }
