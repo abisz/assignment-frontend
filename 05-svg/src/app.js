@@ -13,6 +13,7 @@ import textTpl from './templates/text.hbs'
 import interactionTpl from './templates/interaction.hbs'
 //noinspection JSUnresolvedVariable
 import notFoundTpl from './templates/not-found.hbs'
+import SlideButton from './SlideButton'
 
 const app = document.getElementById('app');
 
@@ -37,7 +38,9 @@ function text() {
 }
 
 function interaction() {
-  app.innerHTML = interactionTpl()
+  app.innerHTML = interactionTpl();
+  const element = document.querySelector('.slide-button');
+  new SlideButton(element, 'commit', "commited")
 }
 
 function notFound() {
